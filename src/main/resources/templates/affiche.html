@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org">
+<head>
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<div th:class="container">
+<table th:class="table">
+<thead>
+<tr>
+<td>Id</td>
+<td>Nom</td>
+<td>Prenom</td>
+</tr>
+</thead>
+<tr th:each="t:${list}">
+<td th:text="${t.id}"></td>
+<td th:text="${t.nom}"></td>
+<td th:text="${t.prenom}"></td>
+<td><a th:href="@{delete(id=${t.id})}">Delete</a></td>
+</tr>
+
+
+
+</table>
+<div class="nav nav-pills">
+<ul >
+<li th:each="p,status:${pages}">
+<a  th:href="@{affiche(page=${status.index})}" th:text="${status.index}"></a></li>
+</ul></div>
+
+
+</div>
+
+
+</body>
+</html>
